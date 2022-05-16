@@ -31,7 +31,8 @@ Schematic_to_Java*
 schematics/
 
 # Ignore Dependencies
-libs/
+libs/InfinityLib/
+libs/AgriCore/
 AgriCraft_Dependencies.rar
 dependencies.zip
 *.bak
