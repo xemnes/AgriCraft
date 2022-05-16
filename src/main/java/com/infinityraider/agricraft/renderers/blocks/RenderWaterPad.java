@@ -81,10 +81,12 @@ public class RenderWaterPad extends RenderBlockBase<BlockWaterPad> {
 
     private static void renderWater(ITessellator tess, TextureAtlasSprite waterIcon) {
         //draw central water levels
+        tess.setApplyDiffuseLighting(true);
         tess.drawScaledFaceDouble(0, 0, 16, 16, EnumFacing.UP, waterIcon, 15);
     }
 
     private static void renderBase(ITessellator tess, TextureAtlasSprite matIcon) {
+        tess.setApplyDiffuseLighting(true);
         tess.drawScaledPrism(0, 0, 0, 16, 8, 16, matIcon);
     }
 
@@ -96,6 +98,7 @@ public class RenderWaterPad extends RenderBlockBase<BlockWaterPad> {
         int max = index < 0 ? 1 : 16;
 
         //render upper face
+        tess.setApplyDiffuseLighting(true);
         tess.drawScaledFace(xAxis ? min : 0, xAxis ? 0 : min, xAxis ? max : 16, xAxis ? 16 : max, EnumFacing.UP, matIcon, 16);
 
         //render side

@@ -49,6 +49,7 @@ public class RenderSprinkler extends RenderBlockWithTileBase<BlockSprinkler, Til
         tess.pushMatrix();
         
         // Translate to connect to above channel.
+        tess.setApplyDiffuseLighting(true);
         tess.translate(0, -4 * Constants.UNIT, 0);
         
         // Render parts.
@@ -71,6 +72,7 @@ public class RenderSprinkler extends RenderBlockWithTileBase<BlockSprinkler, Til
             final CustomWoodType type = CustomWoodTypeRegistry.getFromState(state).orElse(CustomWoodTypeRegistry.DEFAULT);
             // Render the connector.
             this.renderConnector(tessellator, type.getIcon());
+            tessellator.setApplyDiffuseLighting(true);
         }
     }
 
@@ -78,6 +80,7 @@ public class RenderSprinkler extends RenderBlockWithTileBase<BlockSprinkler, Til
     public void renderWorldBlockDynamic(ITessellator tess, World world, BlockPos pos, double x, double y, double z, BlockSprinkler block, TileEntitySprinkler tile, float partialTick, int destroyStage, float alpha) {
         // All we have to do here is render the sprinkler head.
         this.renderHead(tess, tile.getAngle(), BaseIcons.IRON_BLOCK.getIcon());
+        tess.setApplyDiffuseLighting(true);
     }
 
     public void renderConnector(ITessellator tess, TextureAtlasSprite material) {
@@ -88,6 +91,7 @@ public class RenderSprinkler extends RenderBlockWithTileBase<BlockSprinkler, Til
         tess.translate(0, 4 * Constants.UNIT, 0);
         
         // Render the connector with the given wood type.
+        tess.setApplyDiffuseLighting(true);
         tess.drawScaledPrism(4, 8, 4, 12, 16, 12, material);
         
         // Reset matrix.
@@ -104,6 +108,7 @@ public class RenderSprinkler extends RenderBlockWithTileBase<BlockSprinkler, Til
         tess.translate(-0.5F, 0, -0.5F);
 
         // Draw head core.
+        tess.setApplyDiffuseLighting(true);
         tess.drawScaledPrism(MIN_C, MIN_Y, MIN_C, MAX_C, MAX_Y, MAX_C, material);
 
         // Draw head blades.

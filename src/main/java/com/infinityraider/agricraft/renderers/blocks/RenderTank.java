@@ -32,7 +32,9 @@ public class RenderTank extends RenderBlockCustomWood<BlockWaterTank, TileEntity
     }
 
     private void renderBottom(ITessellator tessellator, byte connection, TextureAtlasSprite icon) {
+        tessellator.setApplyDiffuseLighting(true);
         if (connection < 2) {
+            tessellator.setApplyDiffuseLighting(true);
             tessellator.drawScaledFace(A, A, B, B, EnumFacing.DOWN, icon, 0);
             tessellator.drawScaledFace(A, A, B, B, EnumFacing.UP, icon, 1);
         }
@@ -50,11 +52,12 @@ public class RenderTank extends RenderBlockCustomWood<BlockWaterTank, TileEntity
 
         //render upper face
         tessellator.drawScaledFace(xAxis ? min : 0, xAxis ? 0 : min, xAxis ? max : 16, xAxis ? 16 : max, EnumFacing.UP, icon, 16);
-
+        tessellator.setApplyDiffuseLighting(true);
         //render side
         if (connection == 0) {
             tessellator.drawScaledFace(0, 0, 16, 16, dir, icon, index > 0 ? 16 : 0);
             tessellator.drawScaledFace(0, 0, 16, 16, dir.getOpposite(), icon, index > 0 ? 14 : 2);
+            tessellator.setApplyDiffuseLighting(true);
         } else {
             //vertical faces
 
@@ -80,6 +83,7 @@ public class RenderTank extends RenderBlockCustomWood<BlockWaterTank, TileEntity
 
             tessellator.drawScaledFace(min, 5, max, 12, left, icon, 11);
             tessellator.drawScaledFace(min, 5, max, 12, right, icon, 5);
+            tessellator.setApplyDiffuseLighting(true);
         }
     }
 
@@ -90,8 +94,9 @@ public class RenderTank extends RenderBlockCustomWood<BlockWaterTank, TileEntity
         final int level = tank.getFluidHeight();
         if (level > 0) {
 
+            tessellator.setApplyDiffuseLighting(true);
             // -0.0001F to avoid Z-fighting on maximum filled tanks
-            final float y = (level * 16 / 1_000f) - A;
+            final float y = (level * 16 / 1_000f) - 1.0f;
 
             // Calculate water brightness.
             final int l = RenderUtilBase.getMixedBrightness(tank.getWorld(), tank.getPos(), Blocks.WATER);
@@ -111,7 +116,9 @@ public class RenderTank extends RenderBlockCustomWood<BlockWaterTank, TileEntity
         for (EnumFacing side : EnumFacing.HORIZONTALS) {
             renderSide(tess, side, connections.get(side), sprite);
         }
+        tess.setApplyDiffuseLighting(true);
         renderBottom(tess, connections.get(EnumFacing.DOWN), sprite);
+
     }
 
     @Override

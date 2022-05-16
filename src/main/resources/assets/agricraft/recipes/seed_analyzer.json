@@ -15,8 +15,8 @@
             "ore": "paneGlass"
         },
         "b": {
-            "item": "minecraft:stone_slab",
-            "data": 0
+            "type": "forge:ore_dict",
+            "ore": "slabStone"
         },
         "p": {
             "type": "forge:ore_dict",

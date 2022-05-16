@@ -94,7 +94,7 @@ public class PlayerInteractEventHandler {
 
         // Should the server notify the player that vanilla farming has been disabled?
         if (AgriCraftConfig.showDisabledVanillaFarmingWarning) {
-            MessageUtil.messagePlayer(event.getEntityPlayer(), "`7Vanilla planting is disabled!`r");
+            MessageUtil.messagePlayer(event.getEntityPlayer(), "`2[Agricraft] `7You need to place crop sticks down first to plant a seed!`r");
         }
     }
 

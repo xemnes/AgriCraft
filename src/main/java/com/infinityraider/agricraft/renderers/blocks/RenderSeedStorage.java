@@ -29,6 +29,7 @@ public class RenderSeedStorage extends RenderBlockCustomWood<BlockSeedStorage, T
     // The following method is backwards, so that it is rotated 108 degrees around the y axis.
     private void renderSides(ITessellator tessellator, TextureAtlasSprite matIcon) {
         //casing
+        tessellator.setApplyDiffuseLighting(true);
         tessellator.drawScaledPrism(0, 0, 0, 16, 1, 16, matIcon);
         tessellator.drawScaledPrism(0, 15, 0, 16, 16, 16, matIcon);
         tessellator.drawScaledPrism(0, 1, 0, 1, 15, 16, matIcon);
@@ -36,6 +37,7 @@ public class RenderSeedStorage extends RenderBlockCustomWood<BlockSeedStorage, T
         tessellator.drawScaledPrism(1, 1, 15, 15, 15, 16, matIcon);
 
         //drawer
+        tessellator.setApplyDiffuseLighting(true);
         tessellator.drawScaledPrism(1.1F, 1.1F, 1, 14.9F, 14.9F, 2, matIcon);
         tessellator.drawScaledPrism(4, 3, 0, 5, 10, 1, matIcon);
         tessellator.drawScaledPrism(11, 3, 0, 12, 10, 1, matIcon);
@@ -43,9 +45,11 @@ public class RenderSeedStorage extends RenderBlockCustomWood<BlockSeedStorage, T
         tessellator.drawScaledPrism(4, 3, 0, 12, 4, 1, matIcon);
 
         //handle
+        tessellator.setApplyDiffuseLighting(true);
         tessellator.drawScaledPrism(7, 12, 0, 9, 13, 1, BaseIcons.IRON_BLOCK.getIcon());
 
         //trace
+        tessellator.setApplyDiffuseLighting(true);
         tessellator.drawScaledFace(1, 1, 1.5F, 15, EnumFacing.NORTH, matIcon, 0.99F);
         tessellator.drawScaledFace(14.5F, 1, 15, 15, EnumFacing.NORTH, matIcon, 0.99F);
         tessellator.drawScaledFace(1, 14.5F, 15F, 15, EnumFacing.NORTH, matIcon, 0.99F);

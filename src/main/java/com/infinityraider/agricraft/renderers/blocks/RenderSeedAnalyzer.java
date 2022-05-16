@@ -43,6 +43,7 @@ public class RenderSeedAnalyzer extends RenderBlockWithTileBase<BlockSeedAnalyze
     }
 
     private void renderModel(ITessellator tessellator, EnumFacing direction, boolean journal) {
+        tessellator.setApplyDiffuseLighting(true);
         tessellator.pushMatrix();
         rotateBlock(tessellator, direction);
         if (analyzerQuads == null) {
@@ -94,6 +95,7 @@ public class RenderSeedAnalyzer extends RenderBlockWithTileBase<BlockSeedAnalyze
             BlockSeedAnalyzer block, TileEntitySeedAnalyzer tile, float partialTick, int destroyStage, float alpha) {
         tessellator.draw();
         this.renderSeed(tile, 0, 0, 0);
+        tessellator.setApplyDiffuseLighting(true);
         tessellator.startDrawingQuads(DefaultVertexFormats.BLOCK);
     }
 

@@ -14,10 +14,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LiquidSprayFX extends Particle {
 
-    public LiquidSprayFX(World world, FluidStack fluid, double x, double y, double z, float scale, float gravity, Vec3d velocity) {
-        this(world, IconHelper.getIcon(fluid), x, y, z, scale, gravity, velocity);
-    }
-
     public LiquidSprayFX(World world, Fluid fluid, double x, double y, double z, float scale, float gravity, Vec3d velocity) {
         this(world, IconHelper.getIcon(fluid), x, y, z, scale, gravity, velocity);
     }
@@ -26,7 +22,7 @@ public class LiquidSprayFX extends Particle {
         super(world, x, y, z, velocity.x, velocity.y, velocity.z);
 
         particleGravity = gravity;
-        this.particleMaxAge = 50;
+        this.particleMaxAge = 10;
         setSize(0.2f, 0.2f);
         this.particleScale = scale;
         this.canCollide = true;

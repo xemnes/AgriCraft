@@ -149,6 +149,8 @@ public class CommandStat implements ICommand {
     @Override
     public boolean checkPermission(MinecraftServer ms, ICommandSender ics) {
         // Temporary for testing purposes (only enabled in creative mode atm, since quick hack).
+        if (ics.getCommandSenderEntity() == null)
+            return false;
         return TypeHelper.cast(ics.getCommandSenderEntity(), EntityPlayer.class)
                 .filter(EntityPlayer::isCreative)
                 .isPresent();

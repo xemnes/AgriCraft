@@ -57,6 +57,7 @@ public class RenderCrop extends RenderBlockWithTileBase<BlockCrop, TileEntityCro
             IAgriPlant plant = extendedState.getValue(AgriProperties.CROP_PLANT);
             int growthstage = extendedState.getValue(AgriProperties.GROWTH_STAGE);
             if (extendedState.getValue(AgriProperties.CROSS_CROP)) {
+                tessellator.setApplyDiffuseLighting(true);
                 tessellator.drawScaledPrism(0, 10, 2, 16, 11, 3, sprite);
                 tessellator.drawScaledPrism(0, 10, 13, 16, 11, 14, sprite);
                 tessellator.drawScaledPrism(2, 10, 0, 3, 11, 16, sprite);
@@ -79,11 +80,13 @@ public class RenderCrop extends RenderBlockWithTileBase<BlockCrop, TileEntityCro
             createQuads = true;
         }
         if (createQuads) {
+            tessellator.setApplyDiffuseLighting(true);
             tessellator.translate(0, -3 * Constants.UNIT, 0);
             tessellator.drawScaledPrism(2, 0, 2, 3, 16, 3, sprite);
             tessellator.drawScaledPrism(13, 0, 2, 14, 16, 3, sprite);
             tessellator.drawScaledPrism(13, 0, 13, 14, 16, 14, sprite);
             tessellator.drawScaledPrism(2, 0, 13, 3, 16, 14, sprite);
+            tessellator.setApplyDiffuseLighting(false);
             tessellator.translate(0, 3 * Constants.UNIT, 0);
         } else {
             tessellator.addQuads(cropQuads.get(tessellator.getVertexFormat())[index]);

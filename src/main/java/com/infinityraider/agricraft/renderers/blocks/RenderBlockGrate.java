@@ -68,6 +68,7 @@ public class RenderBlockGrate extends RenderBlockCustomWood<BlockGrate, TileEnti
         tess.translate(0, 0, offset.getOffset());
 
         // Draw Grate
+        tess.setApplyDiffuseLighting(true);
         tess.drawScaledPrism(1, 0, 0, 3, 16, 2, sprite);
         tess.drawScaledPrism(5, 0, 0, 7, 16, 2, sprite);
         tess.drawScaledPrism(9, 0, 0, 11, 16, 2, sprite);

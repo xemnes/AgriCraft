@@ -31,7 +31,7 @@ public class RenderPeripheral extends RenderBlockWithTileBase<BlockPeripheral, T
     public static final ResourceLocation TEXTURE_INNER = new ResourceLocation("agricraft:blocks/peripheral_inner");
     public static final ResourceLocation TEXTURE_PROBE = new ResourceLocation("agricraft:blocks/peripheral_probe");
 
-    private static final ModelTechne<ModelPeripheralProbe> MODEL_PERIPHERAL = new ModelTechne<>(new ModelPeripheralProbe()).setDiffuseLighting(false);
+    private static final ModelTechne<ModelPeripheralProbe> MODEL_PERIPHERAL = new ModelTechne<>(new ModelPeripheralProbe()).setDiffuseLighting(true);
 
     private List<BakedQuad> probeQuads;
 
@@ -64,6 +64,7 @@ public class RenderPeripheral extends RenderBlockWithTileBase<BlockPeripheral, T
     public void renderWorldBlockStatic(ITessellator tessellator, IBlockState state, BlockPeripheral block, EnumFacing side) {
         this.renderChasis(tessellator);
         this.renderProbe(tessellator);
+        tessellator.setApplyDiffuseLighting(true);
     }
 
     @Override

@@ -30,6 +30,7 @@ public class RenderChannelValve extends RenderChannel<BlockWaterChannelValve, Ti
         final TextureAtlasSprite sepIcon = BaseIcons.IRON_BLOCK.getIcon();
 
         //Render channel.
+        tessellator.setApplyDiffuseLighting(true);
         tessellator.drawScaledPrism(2, 4, 4, 14, 12, 5, icon);
         tessellator.drawScaledPrism(2, 4, 11, 14, 12, 12, icon);
         tessellator.drawScaledPrism(2, 4, 5, 14, 5, 11, icon);
@@ -65,18 +66,22 @@ public class RenderChannelValve extends RenderChannel<BlockWaterChannelValve, Ti
         switch (dir) {
             case EAST:
                 //positive x
+                tessellator.setApplyDiffuseLighting(true);
                 tessellator.drawScaledPrism(12, 4, 5, 16, 12, 11, matIcon);
                 break;
             case WEST:
                 //negative x
+                tessellator.setApplyDiffuseLighting(true);
                 tessellator.drawScaledPrism(0, 4, 5, 4, 12, 11, matIcon);
                 break;
             case NORTH:
                 //negative z
+                tessellator.setApplyDiffuseLighting(true);
                 tessellator.drawScaledPrism(5, 4, 0, 11, 12, 4, matIcon);
                 break;
             case SOUTH:
                 //positive z
+                tessellator.setApplyDiffuseLighting(true);
                 tessellator.drawScaledPrism(5, 4, 12, 11, 12, 16, matIcon);
                 break;
         }
@@ -87,44 +92,56 @@ public class RenderChannelValve extends RenderChannel<BlockWaterChannelValve, Ti
         switch (dir) {
             case EAST:
                 //positive x
+                tessellator.setApplyDiffuseLighting(true);
                 tessellator.drawScaledPrism(14, 0, 3, 16, 16, 6, matIcon);
                 tessellator.drawScaledPrism(14, 0, 10, 16, 16, 13, matIcon);
                 if (powered) {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(14, 5, 6, 16, 12, 10, sepIcon);
                 } else {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(14, 1, 6, 16, 5.001F, 10, sepIcon);
                     tessellator.drawScaledPrism(14, 12, 6, 16, 15, 10, sepIcon);
                 }
                 break;
             case WEST:
                 //negative x
+                tessellator.setApplyDiffuseLighting(true);
                 tessellator.drawScaledPrism(0, 0, 3, 2, 16, 6, matIcon);
                 tessellator.drawScaledPrism(0, 0, 10, 2, 16, 13, matIcon);
                 if (powered) {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(0, 5, 6, 2, 12, 10, sepIcon);
                 } else {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(0, 1, 6, 2, 5.001F, 10, sepIcon);
                     tessellator.drawScaledPrism(0, 12, 6, 2, 15, 10, sepIcon);
                 }
                 break;
             case NORTH:
                 //negative z
+                tessellator.setApplyDiffuseLighting(true);
                 tessellator.drawScaledPrism(3, 0, 0, 6, 16, 2, matIcon);
                 tessellator.drawScaledPrism(10, 0, 0, 13, 16, 2, matIcon);
                 if (powered) {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(6, 5, 0, 10, 12, 2, sepIcon);
                 } else {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(6, 1, 0, 10, 5.001F, 2, sepIcon);
                     tessellator.drawScaledPrism(6, 12, 0, 10, 15, 2, sepIcon);
                 }
                 break;
             case SOUTH:
                 //positive z
+                tessellator.setApplyDiffuseLighting(true);
                 tessellator.drawScaledPrism(3, 0, 14, 6, 16, 16, matIcon);
                 tessellator.drawScaledPrism(10, 0, 14, 13, 16, 16, matIcon);
                 if (powered) {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(6, 5, 14, 10, 12, 16, sepIcon);
                 } else {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(6, 1, 14, 10, 5.001F, 16, sepIcon);
                     tessellator.drawScaledPrism(6, 12, 14, 10, 15, 16, sepIcon);
                 }

@@ -189,6 +189,9 @@ public class JsonPlant implements IAgriPlant {
                 return RenderMethod.HASHTAG;
             case CROSS:
                 return RenderMethod.CROSSED;
+            case TALL_HASH:
+                return RenderMethod.TALL_HASHTAG;
+
         }
     }
 

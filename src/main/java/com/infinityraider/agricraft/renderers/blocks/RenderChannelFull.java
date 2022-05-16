@@ -23,10 +23,13 @@ public class RenderChannelFull extends RenderChannel<BlockWaterChannelFull, Tile
     @Override
     protected void renderBottom(ITessellator tessellator, TextureAtlasSprite matIcon) {
         //draw bottom
+        tessellator.setApplyDiffuseLighting(true);
         tessellator.drawScaledPrism(0, 0, 0, 16, 5, 16, matIcon);
         //draw top
+        tessellator.setApplyDiffuseLighting(true);
         tessellator.drawScaledPrism(0, 12, 0, 16, 16, 16, matIcon);
         //draw four corners
+        tessellator.setApplyDiffuseLighting(true);
         tessellator.drawScaledPrism(0, 5, 0, 5, 12, 5, matIcon);
         tessellator.drawScaledPrism(11, 5, 0, 16, 12, 5, matIcon);
         tessellator.drawScaledPrism(11, 5, 11, 16, 12, 16, matIcon);
@@ -43,18 +46,22 @@ public class RenderChannelFull extends RenderChannel<BlockWaterChannelFull, Tile
             case EAST:
                 //positive x
                 tessellator.drawScaledFace(5, 5, 11, 12, dir, matIcon, 16);
+                tessellator.setApplyDiffuseLighting(true);
                 break;
             case WEST:
                 //negative x
                 tessellator.drawScaledFace(5, 5, 11, 12, dir, matIcon, 0);
+                tessellator.setApplyDiffuseLighting(true);
                 break;
             case NORTH:
                 //negative z
                 tessellator.drawScaledFace(5, 5, 11, 12, dir, matIcon, 0);
+                tessellator.setApplyDiffuseLighting(true);
                 break;
             case SOUTH:
                 //positive z
                 tessellator.drawScaledFace(5, 5, 11, 12, dir, matIcon, 16);
+                tessellator.setApplyDiffuseLighting(true);
                 break;
         }
     }

@@ -92,4 +92,5 @@ public abstract class RenderBlockCustomWood<B extends BlockCustomWood<T>, T exte
                 .orElse(null);
     }
 
+    public abstract boolean applyAmbientOcclusion();
 }

@@ -323,7 +323,7 @@ public class TileEntitySprinkler extends TileEntityBase implements ITickable, IA
         }
         this.angle = (this.angle + 5F) % 360;
         int particleSetting = Minecraft.getMinecraft().gameSettings.particleSetting;    //0 = all, 1 = decreased; 2 = minimal;
-        counter = (counter + 1) % (particleSetting + 1);
+        counter = (counter + 1) % (6 + 1);
         if (counter == 0) {
             for (int i = 0; i < 4; i++) {
                 float alpha = -(this.angle + 90 * i) * ((float) Math.PI) / 180;

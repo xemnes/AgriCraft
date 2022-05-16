@@ -37,6 +37,7 @@ public class RenderChannel<B extends AbstractBlockWaterChannel<T>, T extends Til
 
     protected void renderBottom(ITessellator tessellator, TextureAtlasSprite matIcon) {
         //bottom
+        tessellator.setApplyDiffuseLighting(true);
         tessellator.drawScaledPrism(4, 4, 4, 12, 5, 12, matIcon);
         //corners
         tessellator.drawScaledPrism(4, 5, 4, 5, 12, 5, matIcon);
@@ -50,40 +51,48 @@ public class RenderChannel<B extends AbstractBlockWaterChannel<T>, T extends Til
             case EAST:
                 //positive x
                 if (type > 0) {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(12, 4, 4, 16, 5, 12, matIcon);
                     tessellator.drawScaledPrism(12, 5, 4, 16, 12, 5, matIcon);
                     tessellator.drawScaledPrism(12, 5, 11, 16, 12, 12, matIcon);
                 } else if (type == 0) {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(11, 5, 5, 12, 12, 11, matIcon);
                 }
                 break;
             case WEST:
                 //negative x
                 if (type > 0) {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(0, 4, 4, 4, 5, 12, matIcon);
                     tessellator.drawScaledPrism(0, 5, 4, 4, 12, 5, matIcon);
                     tessellator.drawScaledPrism(0, 5, 11, 4, 12, 12, matIcon);
                 } else if (type == 0) {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(4, 5, 5, 5, 12, 11, matIcon);
                 }
                 break;
             case NORTH:
                 //negative z
                 if (type > 0) {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(4, 4, 0, 12, 5, 4, matIcon);
                     tessellator.drawScaledPrism(4, 5, 0, 5, 12, 4, matIcon);
                     tessellator.drawScaledPrism(11, 5, 0, 12, 12, 4, matIcon);
                 } else if (type == 0) {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(5, 5, 4, 11, 12, 5, matIcon);
                 }
                 break;
             case SOUTH:
                 //positive z
                 if (type > 0) {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(4, 4, 12, 12, 5, 16, matIcon);
                     tessellator.drawScaledPrism(4, 5, 12, 5, 12, 16, matIcon);
                     tessellator.drawScaledPrism(11, 5, 12, 12, 12, 16, matIcon);
                 } else if (type == 0) {
+                    tessellator.setApplyDiffuseLighting(true);
                     tessellator.drawScaledPrism(5, 5, 11, 11, 12, 12, matIcon);
                 }
                 break;
@@ -103,9 +112,10 @@ public class RenderChannel<B extends AbstractBlockWaterChannel<T>, T extends Til
         tessellator.setAlpha(0.39f);
 
         // Calculate y to avoid plane rendering conflicts
-        final float y = (channel.getFluidHeight() * 16 / 1_000f) - 0.001f;
+        final float y = (channel.getFluidHeight() * 16 / 1_000f) - 1.0f;
 
         //draw central water levels
+        tessellator.setApplyDiffuseLighting(true);
         tessellator.drawScaledFaceDouble(5, 5, 11, 11, EnumFacing.UP, icon, y);
         
         // Fetch the connections.
@@ -113,15 +123,19 @@ public class RenderChannel<B extends AbstractBlockWaterChannel<T>, T extends Til
 
         //connect to edges
         if (connections.get(EnumFacing.NORTH) > 0) {
+            tessellator.setApplyDiffuseLighting(true);
             tessellator.drawScaledFaceDouble(5, 0, 11, 5, EnumFacing.UP, icon, y);
         }
         if (connections.get(EnumFacing.EAST) > 0) {
+            tessellator.setApplyDiffuseLighting(true);
             tessellator.drawScaledFaceDouble(11, 5, 16, 11, EnumFacing.UP, icon, y);
         }
         if (connections.get(EnumFacing.SOUTH) > 0) {
+            tessellator.setApplyDiffuseLighting(true);
             tessellator.drawScaledFaceDouble(5, 11, 11, 16, EnumFacing.UP, icon, y);
         }
         if (connections.get(EnumFacing.WEST) > 0) {
+            tessellator.setApplyDiffuseLighting(true);
             tessellator.drawScaledFaceDouble(0, 5, 5, 11, EnumFacing.UP, icon, y);
         }
 
