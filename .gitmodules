@@ -1,6 +1,6 @@
 [submodule "AgriPlants"]
 	path = lib/AgriPlants
-	url = https://github.com/xemnes/AgriPlants/tree/1.12.2
+	url = https://github.com/xemnes/AgriPlants
 [submodule "lib/InfinityLib"]
 	path = lib/InfinityLib
 	url = https://github.com/InfinityRaider/InfinityLib.git
